@@ -13,8 +13,7 @@ app.use('/users', signUp, signIn);
 app.use('/sketch', saveSketch);
 
 const port = process.env.PORT || 4000;
-const hostname = process.env.HOST || '127.0.0.1';
 
-app.listen(port, hostname, () => {
-  console.log(`Server running at http://${hostname}:${port}/`);
+app.listen(port, () => {
+  console.log(`Server listening on port ${port}`);
 });
