@@ -24,7 +24,20 @@ const doSignIn = async (email, password) => {
   return { user, session };
 };
 
+const doSignOut = async (email, password) => {
+  const { error } = await supabase.auth.signIn({
+    email,
+    password,
+  });
+
+  if (error) {
+    console.error('Error signing up.', error);
+  }
+  return null;
+};
+
 module.exports = {
-  doSignUp,
   doSignIn,
+  doSignOut,
+  doSignUp,
 };
